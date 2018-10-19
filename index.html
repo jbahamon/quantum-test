@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+  <link rel="stylesheet" href="./css/styles.css">
+  <title>Which quantum Mechanics interpretation suits me?</title>
+</head>
+<body class="bg-light">
+  <div class="container">
+
+    <div class="py-5 text-center">
+      <h2 class="mb-3">Which quantum mechanics interpretation suits me?</h2>
+      <p class="lead">Quantum mechanics is weird, to say the least. It gives us a mathematical framework for predicting observations and such, as a body
+        of scientific laws should. But people continue to disagree as to what do its elements actually mean. This test aims to find the interpretation that
+      suits you the most, based on their characteristics.</p>
+    </div>
+
+    <div class="row justify-content-center">
+      <div class="col-md-10 col-offset-1">
+        <form id="quantum-test-form" class="needs-validation" novalidate>
+
+          <h4>Determinism</h4>
+          <p class="mb-3">Determinism, in this context, is the concept that events are bound by causality in such a way that any state
+          (of an object or event) is completely determined by prior states. </p>
+          <div class="row mb-4 align-items-center">
+            <div class="col-md-4 offset-md-1 text-right">I <span class="font-weight-bold">don't</span> want determinism</div>
+            <div class="col-md-2 text-center">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input position-static" type="radio" name="determinism"  value="-2" aria-label="-2">
+                <input class="form-check-input position-static" type="radio" name="determinism"  value="-1" aria-label="-1">
+                <input class="form-check-input position-static" type="radio" name="determinism"  value="0" aria-label="0" checked="checked">
+                <input class="form-check-input position-static" type="radio" name="determinism"  value="1" aria-label="1">
+                <input class="form-check-input position-static" type="radio" name="determinism"  value="2" aria-label="2">
+              </div>
+            </div>
+            <div class="col-md-4 text-left">I <span class="font-weight-bold">need</span> determinism</div>
+          </div>
+          
+
+          <h4>Is the wavefunction real?</h4>
+          <p class="mb-3">The wavefunction is a mathematical description of the state of an isolated system: a complex-valued probability amplitude. 
+          But does it represent something that actually exists? Does it represent something physical? </p>
+          <div class="row mb-4 align-items-center">
+            <div class="col-md-4 offset-md-1 text-right">The wavefunction should only be an <span class="font-weight-bold">abstract construct</span></div>
+            <div class="col-md-2 text-center">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input position-static" type="radio" name="wavefunction-real"  value="-2" aria-label="-2">
+                <input class="form-check-input position-static" type="radio" name="wavefunction-real"  value="-1" aria-label="-1">
+                <input class="form-check-input position-static" type="radio" name="wavefunction-real"  value="0" aria-label="0" checked="checked">
+                <input class="form-check-input position-static" type="radio" name="wavefunction-real"  value="1" aria-label="1">
+                <input class="form-check-input position-static" type="radio" name="wavefunction-real"  value="2" aria-label="2">
+              </div>
+            </div>
+            <div class="col-md-4 text-left">The wavefunction should have an objective, <span class="font-weight-bold">physical existence</span></div>
+          </div>
+
+          <h4>Is there a unique history?</h4>
+          <p class="mb-3">Quantum mechanics often deals with multiple results for experiments: calculations give out the probabilities of different outcomes.
+          One of them ends up being what we actually observe, but what of the other "histories"? Do they happen in some way?</p>
+          <div class="row mb-4 align-items-center">
+            <div class="col-md-4 offset-md-1 text-right">There <span class="font-weight-bold">shouldn't</span> be a unique history</div>
+            <div class="col-md-2 text-center">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input position-static" type="radio" name="unique-history"  value="-2" aria-label="-2">
+                <input class="form-check-input position-static" type="radio" name="unique-history"  value="-1" aria-label="-1">
+                <input class="form-check-input position-static" type="radio" name="unique-history"  value="0" aria-label="0" checked="checked">
+                <input class="form-check-input position-static" type="radio" name="unique-history"  value="1" aria-label="1">
+                <input class="form-check-input position-static" type="radio" name="unique-history"  value="2" aria-label="2">
+              </div>
+            </div>
+            <div class="col-md-4 text-left">There <span class="font-weight-bold">should</span> be a unique history</div>
+          </div>
+
+
+          <h4>Collapse of the wavefunction</h4>
+          <p class="mb-3">When a system is in a state of superposition of "base states" (eigenstates), it appears to reduce to one of these 
+            (by "observation"). But is this a real phenomenon, or is it just a secondary phenomenon? For example, it could be that what we observe as the 
+          "collapse" is just the system entering a superposition with its environment, transferring information to it.</p>
+          <div class="row mb-4 align-items-center">
+            <div class="col-md-4 offset-md-1 text-right">There should be <span class="font-weight-bold">no such thing</span> as the wavefunction's collapse</div>
+            <div class="col-md-2 text-center">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input position-static" type="radio" name="wavefunction-collapse"  value="-2" aria-label="-2">
+                <input class="form-check-input position-static" type="radio" name="wavefunction-collapse"  value="-1" aria-label="-1">
+                <input class="form-check-input position-static" type="radio" name="wavefunction-collapse"  value="0" aria-label="0" checked="checked">
+                <input class="form-check-input position-static" type="radio" name="wavefunction-collapse"  value="1" aria-label="1">
+                <input class="form-check-input position-static" type="radio" name="wavefunction-collapse"  value="2" aria-label="2">
+              </div>
+            </div>
+            <div class="col-md-4 text-left">The wavefunction's collapse should be an <span class="font-weight-bold">actual phenomenon</span></div>
+          </div>
+
+          <h4>Observer role</h4>
+          <p class="mb-3">For quantum mechanics, an observer corresponds to the act of measurement, which results in the system taking on specific values.
+          But does this mean quantum mechanics is describing something about the observer or its interactions with the system?</p>
+          <div class="row mb-4 align-items-center">
+            <div class="col-md-4 offset-md-1 text-right">The observer <span class="font-weight-bold">should not</span> have a special role in the interpretation</div>
+            <div class="col-md-2 text-center">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input position-static" type="radio" name="observer-role"  value="-2" aria-label="-2">
+                <input class="form-check-input position-static" type="radio" name="observer-role"  value="-1" aria-label="-1">
+                <input class="form-check-input position-static" type="radio" name="observer-role"  value="0" aria-label="0" checked="checked">
+                <input class="form-check-input position-static" type="radio" name="observer-role"  value="1" aria-label="1">
+                <input class="form-check-input position-static" type="radio" name="observer-role"  value="2" aria-label="2">
+              </div>
+            </div>
+            <div class="col-md-4 text-left">The observer <span class="font-weight-bold">should</span> have a special role in the interpretation</div>
+          </div>
+
+          <h4>Hidden variables</h4>
+          <p class="mb-3">Some people argue that quantum mechanics is incomplete: there could be "hidden variables" that could account, for example, for the 
+            indeterminacy in measurements. Knowledge of these hidden variables would result, then, in a theory without indeterminacy. However, it must be noted
+          that hidden variables are incompatible with local dynamics (see below)</p>
+          <div class="row mb-4 align-items-center">
+            <div class="col-md-4 offset-md-1 text-right">There <span class="font-weight-bold">shouldn't</span> be any hidden variables</div>
+            <div class="col-md-2 text-center">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input position-static" type="radio" name="hidden-variables"  value="-2" aria-label="-2">
+                <input class="form-check-input position-static" type="radio" name="hidden-variables"  value="-1" aria-label="-1">
+                <input class="form-check-input position-static" type="radio" name="hidden-variables"  value="0" aria-label="0" checked="checked">
+                <input class="form-check-input position-static" type="radio" name="hidden-variables"  value="1" aria-label="1">
+                <input class="form-check-input position-static" type="radio" name="hidden-variables"  value="2" aria-label="2">
+              </div>
+            </div>
+            <div class="col-md-4 text-left">There <span class="font-weight-bold">should</span> be hidden variables</div>
+          </div>
+
+          <h4>Local dynamics</h4>
+          <p class="mb-3">The principle of locality states that an object is directly influenced only by its immediate surroundings. A theory which includes the principle of locality is said to be a "local theory". Note that locality rules out the possibility of hidden variables (see above).</p>
+          <div class="row mb-4 align-items-center">
+            <div class="col-md-4 offset-md-1 text-right">Dynamics <span class="font-weight-bold">should not</span> be local</div>
+            <div class="col-md-2 text-center">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input position-static" type="radio" name="local-dynamics"  value="-2" aria-label="-2">
+                <input class="form-check-input position-static" type="radio" name="local-dynamics"  value="-1" aria-label="-1">
+                <input class="form-check-input position-static" type="radio" name="local-dynamics"  value="0" aria-label="0" checked="checked">
+                <input class="form-check-input position-static" type="radio" name="local-dynamics"  value="1" aria-label="1">
+                <input class="form-check-input position-static" type="radio" name="local-dynamics"  value="2" aria-label="2">
+              </div>
+            </div>
+            <div class="col-md-4 text-left">Dynamics <span class="font-weight-bold">should</span> be local</div>
+          </div>
+
+          <h4>Counterfactual definiteness</h4>
+          <p class="mb-3">Counterfactual definiteness is the ability to speak "meaningfully" of the definiteness of the results of measurements that have not
+            been performed. In other words, an interpretation with counterfactual definiteness treats unmeasured results on an equal footing with measured 
+          results in statistical calculations.</p>
+          <div class="row mb-4 align-items-center">
+            <div class="col-md-4 offset-md-1  text-right">Unmeasured results <span class="font-weight-bold">should not</span> be treated as equal with measured results</div>
+            <div class="col-md-2 text-center">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input position-static" type="radio" name="counterfactual-definiteness"  value="-2" aria-label="-2">
+                <input class="form-check-input position-static" type="radio" name="counterfactual-definiteness"  value="-1" aria-label="-1">
+                <input class="form-check-input position-static" type="radio" name="counterfactual-definiteness"  value="0" aria-label="0" checked="checked">
+                <input class="form-check-input position-static" type="radio" name="counterfactual-definiteness"  value="1" aria-label="1">
+                <input class="form-check-input position-static" type="radio" name="counterfactual-definiteness"  value="2" aria-label="2">
+              </div>
+            </div>
+            <div class="col-md-4 text-left">Unmeasured results <span class="font-weight-bold">should</span> be treated as equal with measured results</div>
+          </div>
+
+          <h4>Universal wavefunction</h4>
+          <p class="mb-3">The universal wave function is the wavefunction or quantum state of the totality of existence, regarded as the "basic physical entity"
+          or "the fundamental entity, obeying at all times a deterministic wave equation.</p>
+          <div class="row mb-4 align-items-center">
+            <div class="col-md-4 offset-md-1 text-right">There <span class="font-weight-bold">shouldn't</span> be a universal wavefunction</div>
+            <div class="col-md-2 text-center">
+              <div class="form-check form-check-inline">
+                <input class="form-check-input position-static" type="radio" name="universal-wavefunction"  value="-2" aria-label="-2">
+                <input class="form-check-input position-static" type="radio" name="universal-wavefunction"  value="-1" aria-label="-1">
+                <input class="form-check-input position-static" type="radio" name="universal-wavefunction"  value="0" aria-label="0" checked="checked">
+                <input class="form-check-input position-static" type="radio" name="universal-wavefunction"  value="1" aria-label="1">
+                <input class="form-check-input position-static" type="radio" name="universal-wavefunction"  value="2" aria-label="2">
+              </div>
+            </div>
+            <div class="col-md-4 text-left">There <span class="font-weight-bold">should</span> be a universal wavefunction</div>
+          </div>
+
+          <div class="row align-items-center">
+            <div class="col-md-4 offset-md-4">
+              <button id="submit" class="btn btn-primary" type="submit">Give me my results!</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <div id="results-modal" class="modal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Your results!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <p>You got <span id="results"></span>!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+  <script>
+   var interpretations = [
+   {
+    name: "Ensemble",
+    scores: [0, -1, 1, 0, -1, -1, -1, -1, -1]
+  },
+  {
+    name: "Copenhagen",
+    scores: [-1, -1, 1, -1, 1, 1, -1, -1, -1]
+  },
+  {
+    name: "de Broglie-Bohm",
+    scores: [1, 1, 1, 1, 0, -1, -1, 1, 1]
+  },
+  {
+    name: "Quantum logic",
+    scores: [0, 0, 1, -1, -1, 0, 0, -1, -1]
+  },
+  {
+    name: "Time-symmetric",
+    scores: [1, 1, 1, 1, -1, -1, 1, -1, 1]
+  },
+  {
+    name: "Many-worlds",
+    scores: [1, 1, -1, -1, -1, -1, 1, 0, 1]
+  },
+  {
+    name: "Consciousness causes collapse",
+    scores: [-1, 1, 1, -1, 1, 1, -1, -1, 1]
+  },
+  {
+    name: "Stochastic",
+    scores: [-1, -1, 1, 1, -1, -1, -1, 1, -1]
+  },
+  {
+    name: "Many-minds",
+    scores: [1, 1, -1, -1, -1, 0, 1, 0, 1]
+  },
+  {
+    name: "Consistent histories",
+    scores: [-1, -1, -1, -1, -1, -1, 1, -1, 1]
+  },
+  {
+    name: "Transactional",
+    scores: [1, 1, 1, -1, 1, -1, -1, 1, -1]
+  },
+  {
+    name: "Objective collapse",
+    scores: [-1, 1, 1, -1, 1, -1, -1, -1, -1]
+  },
+  {
+    name: "Relational",
+    scores: [0, -1, 1, -1, 1, 1, 1, -1, -1]
+  },
+  {
+    name: "QBism",
+    scores: [-1, -1, 0, -1, 1, 1, 1, -1, -1]
+  },
+  ];
+
+  $('#quantum-test-form').on('submit', function(event) {
+    event.preventDefault();
+
+    var scores = [ 
+    parseInt($("input[name='determinism']:checked").val()),
+    parseInt($("input[name='wavefunction-real']:checked").val()),
+    parseInt($("input[name='unique-history']:checked").val()),
+    parseInt($("input[name='hidden-variables']:checked").val()),
+    parseInt($("input[name='wavefunction-collapse']:checked").val()),
+    parseInt($("input[name='observer-role']:checked").val()),
+    parseInt($("input[name='local-dynamics']:checked").val()),
+    parseInt($("input[name='counterfactual-definiteness']:checked").val()),
+    parseInt($("input[name='universal-wavefunction']:checked").val())
+    ];
+
+    var interpretationScores = interpretations.map( it => {
+      return { name: it.name, score: scores.reduce((acc, curr, idx) => (acc + curr * it.scores[idx])) }
+    });
+
+    interpretationScores.sort((a, b) => (b.score - a.score));
+
+    console.log(interpretationScores);
+    $('#results').text(interpretationScores[0].name);
+    $('#results-modal').modal();
+  })
+</script> 
+</body>
+</html>
