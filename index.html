@@ -57,7 +57,7 @@
                 <input class="form-check-input position-static" type="radio" name="wavefunction-real"  value="2" aria-label="2">
               </div>
             </div>
-            <div class="col-md-4 text-left">The wavefunction should have an objective, <span class="font-weight-bold">physical existence</span></div>
+            <div class="col-md-4 text-left">The wavefunction should have an <span class="font-weight-bold">objective, physical existence</span></div>
           </div>
 
           <h4>Is there a unique history?</h4>
@@ -195,13 +195,28 @@
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Your results!</h5>
+          <h5 class="modal-title"><a id="results-link">You got <span id="results-title"></span></a></h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
         <div class="modal-body">
-          <p>You got <span id="results"></span>!</p>
+          <p id="results-description"></p>
+
+          <p>See them all:</p>
+
+          <table class="table">
+            <thead>
+              <th scope="col">
+                Name    
+              </th>
+              <th scope="col">
+                Score
+              </th>
+            </thead>
+            <tbody id="scores-body">
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
@@ -215,60 +230,90 @@
   <script>
    var interpretations = [
    {
-    name: "Ensemble",
-    scores: [0, -1, 1, 0, -1, -1, -1, -1, -1]
+    name: "Ensemble interpretation, or Statistical interpretation",
+    scores: [0, -1, 1, 0, -1, -1, -1, -1, -1],
+    description: "This interpretation assumes that the wavefunction doesn't refer to a single system, but to a set of similarly prepared systems. This results in a very minimal interpretation (in the metaphysical sense): the wavefunction doesn't have a physical meaning and its collapse is not a real phenomenon. Therefore, this interpretation does not allow for something thing like \"the wavefunction of an individual system\". This means there is no such thing as a collapse and there is a single history, but it has problems with the quantum Zeno effect: the permanence of measured properties.",
+    link: "https://en.wikipedia.org/wiki/Ensemble_interpretation"
+
   },
   {
-    name: "Copenhagen",
-    scores: [-1, -1, 1, -1, 1, 1, -1, -1, -1]
+    name: "Copenhagen interpretation",
+    scores: [-1, -1, 1, -1, 1, 1, -1, -1, -1],
+    description: "The Copenhagen interpretation is one of the most popular and commonly taught interpretations, but is one of the worst defined ones. According to this interpretation, physical system doesn't have definite properties before being measured: wave and particle properties depend on the experimental arrangement. Furthermore, quantum mechanics is about observations and measurements, the wavefunction's collapse is an actual phenomenon under this interpretation, and the act of observation causes this collapse (according to probabilities given by the wavefunction), giving the observer a causal role. No hidden variables are allowed, so physics are non-local, in addition to being non-deterministic. This interpretation has difficulties with describing the \"laboratory\" where results are measured, typically using classical physics for it.",
+    link: "https://en.wikipedia.org/wiki/Copenhagen_interpretation"
+
   },
   {
-    name: "de Broglie-Bohm",
-    scores: [1, 1, 1, 1, 0, -1, -1, 1, 1]
+    name: "de Broglie-Bohm interpretation, Pilot wave interpretation or Causal or Ontological interpretation",
+    scores: [1, 1, 1, 1, 0, -1, -1, 1, 1],
+    description: "According to this interpretation, there is a guiding wave for each particle, which behaves like a wave and attracts the particle to it. This interpretation postulates that the system has a well-defined configuration when unobserved, and probabilities are a practical necessity for solving the guiding wave problem, and not as an inherent lack of complete determination in the properties of matter, doing away with measurement problems. This results in a very \"classical-like\" interpretation: it is deterministic, single-history and has counterfactual definiteness. However, it is a non-local interpretation (as the pilot wave depends on its boundary conditions, which might reach across the universe) and it requires hidden variables (the actual positions of particles are hidden).",
+    link: "https://en.wikipedia.org/wiki/De_Broglie%E2%80%93Bohm_theory"
   },
   {
     name: "Quantum logic",
-    scores: [0, 0, 1, -1, -1, 0, 0, -1, -1]
+    scores: [0, 0, 1, -1, -1, 0, 0, -1, -1],
+    description: "Quanutm logic, as it name suggests, is actually an effort to incorporate quantum theory into a set of rules for reasoning about propositions. It is very similar to the ensemble interpretation in that it talks about a set of similarly-prepared systems instead of a single system. Therefore it is an interpretation that rejects the wavefunction's collapse as a phenomenon, the role of the observer and counterfactual definiteness. Furthermore, the nonexistence of hidden variables is actually fundamental to quantum logic, and Bell's lemmas can be reproduced using it. However, as it is more about reasoning than a physical interpretation, it is agnostic with respect to many issues, such as determinism, the physical existence of the wavefunction, the observer role and whether dynamics are local.",
+    link: "https://en.wikipedia.org/wiki/Quantum_logic"
   },
   {
-    name: "Time-symmetric",
-    scores: [1, 1, 1, 1, -1, -1, 1, -1, 1]
+    name: "Time-symmetric theories",
+    scores: [1, 1, 1, 1, -1, -1, 1, -1, 1],
+    description: "Time-symmetric interpretations proposes that, in addition to the standard forwards-evolving quantum state, there is a backwards-evolving quantum state. For example, a source creates a forwards-evolving quantum state for photons that are tested by a detector. This interpretation posits that there are backwards-evolving quantum states for these photons, created by the detector and tested by the source. These backwards-evolving states exist at present time, and are constructed in such a way that measurement results are well-defined. This interpretation results in a deterministic theory with local dynamics. This interpretation also removes the collapse phenomenon and the observer's role in it; it does require hidden variables, though."
   },
   {
-    name: "Many-worlds",
-    scores: [1, 1, -1, -1, -1, -1, 1, 0, 1]
+    name: "Many-worlds interpretation",
+    scores: [1, 1, -1, -1, -1, -1, 1, 0, 1],
+    description: "One of the core ideas of this interpretation is the existence of a universal wavefunction that never collapses. At every \"moment of choice\" (for example, a particle goes through one of two slits), the universe that we witness splits into separate copies for each result. Variants of this interpretation differ in whether these other universes really exist or are an abstract construct and if these universes existed before the split, but they do away with the collapse phenomenon. The observer gets no special role, no hidden variables are needed, and dynamics are local, but the idea of a unique history is abandoned.",
+    link: "https://en.wikipedia.org/wiki/Many-worlds_interpretation"
   },
   {
-    name: "Consciousness causes collapse",
-    scores: [-1, 1, 1, -1, 1, 1, -1, -1, 1]
+    name: "Consciousness causes collapse or von Neumann-Wigner interpretation",
+    scores: [-1, 1, 1, -1, 1, 1, -1, -1, 1],
+    description: "This interpretation argues that the subjective perception of the human observer is what causes the wavefunction's collapse. The human (and possibly animal) minds act as external observers that cannot be treated within quantum mechanics. The wavefunction, then, is a real object with which these minds interact, putting the oserver in a central role. There is, in addition, a universal wavefunction, a unique, non deterministic history.",
+    link: "https://en.wikipedia.org/wiki/Von_Neumann%E2%80%93Wigner_interpretation"
   },
   {
-    name: "Stochastic",
-    scores: [-1, -1, 1, 1, -1, -1, -1, 1, -1]
+    name: "Stochastic interpretation",
+    scores: [-1, -1, 1, 1, -1, -1, -1, 1, -1],
+    description: "This interpretation posits that spacetime fluctuations are the cause of quantum mechanics, not one of its consequences. The first of these theories understood the Schrödinger equation as a diffusion equation for a Markov process. In this interpretation, it's not possible to define velocities for particles, as their paths are not smooth. The Markov process is hidden, but if it was known (plus initial conditions), the theory results in a realistic interpretation, with results existing before they are measured. Dynamics, however, are non-local.",
+    link: "https://en.wikipedia.org/wiki/Stochastic_quantum_mechanics"
   },
   {
     name: "Many-minds",
-    scores: [1, 1, -1, -1, -1, 0, 1, 0, 1]
+    scores: [1, 1, -1, -1, -1, 0, 1, 0, 1],
+    description: "This interpretation is similar to the many-worlds interpretation in that it rejects the notion of a unique history, it involves a universal wavefunction, and there is a branching phenomenon instead of the wavefunction's collapse. However, instead of branching universes, this interpretation involves branching consciousnesses. Every sentient being is attributed with an infinity of minds, whose prevalence correspond to the amplitude of the wavefunction. As an observer checks a measurement, the probability of realizing a specific measurement directly correlates to the number of minds they have where they see that measurement. It is in this way that the probabilistic nature of quantum measurements is obtained.",
+    link: "https://en.wikipedia.org/wiki/Many-minds_interpretation"
+
   },
   {
-    name: "Consistent histories",
-    scores: [-1, -1, -1, -1, -1, -1, 1, -1, 1]
+    name: "Consistent histories interpretation",
+    scores: [-1, -1, -1, -1, -1, -1, 1, -1, 1],
+    description: "According to this interpretation, the wavefunction is only a tool for calculating probabilities. The development of the quantum system is a stochastic process; there exist bundles of consistent histories, called frameworks, which are equally real. Any discussion of a quantum system must be confined to a single framework, ruling out paradoxes. Measurements reveal existing properties of quantum objects; however, a property that exists in some frameworks may not exist in others.",
+    link: "https://en.wikipedia.org/wiki/Consistent_histories"
   },
   {
-    name: "Transactional",
-    scores: [1, 1, 1, -1, 1, -1, -1, 1, -1]
+    name: "Transactional interpretation",
+    scores: [1, 1, 1, -1, 1, -1, -1, 1, -1],
+    description: "Under this interpretation, the wavefunction is composed of a component that is retarded wave that moves forward in time, and an advanced wave that moves backward in time. A quantum event occurs when a \"handshake\" exchange of advanced and retarded waves triggers the formation of a transaction in which energy, momentum, angular momentum, etc. are transferred: this handshake is the wavefunction's collapse. This interpretation is explicitly non-local, and sees the wavefunction as a real object. A particularity of this interpretation is that it uses solutions admitted by the relativistic Schrödinger equation, as the ordinary one does nod admit advanced waves.",
+    link: "https://en.wikipedia.org/wiki/Transactional_interpretation"
   },
   {
-    name: "Objective collapse",
-    scores: [-1, 1, 1, -1, 1, -1, -1, -1, -1]
+    name: "Objective collapse interpretation, or quantum-mechanical spontaneous-localization models",
+    scores: [-1, 1, 1, -1, 1, -1, -1, -1, -1],
+    description: "These theories center around the idea that the wavefunction is a real entity, and its collapse is an actual phenomenon, caused at random or when reaching some physical threshold. This often means introducing small amounts of non-linearity into the equations.  However, the collapse is not complete in some of these theories, which might mean there is a non-zero mass density in unobserved states. This interpretation has no hidden variables, does not have locality, and assigns no special role to the observer.",
+    link: "https://en.wikipedia.org/wiki/Objective-collapse_theory"
   },
   {
     name: "Relational",
-    scores: [0, -1, 1, -1, 1, 1, 1, -1, -1]
+    scores: [0, -1, 1, -1, 1, 1, 1, -1, -1],
+    description: "This interpretation states that quantum mechanics is not an absolute description of reality, but rather deals with relations between various objects. Therefore, an observer-independent description is unphysical: different observers may give different descriptions of the same event if they have a hierarchical relation. This interpretation gives an intrinsic role to observers, rejects hidden variables and treats measurement as an ordinary physical interaction, but it is not clear with respect to determinism. There are claims that this interpretation allows to avoid some conflicts between quantum mechanics and special relativity (such as de Einstein-Podolsky-Rosen paradox).",
+    link: "https://en.wikipedia.org/wiki/Relational_quantum_mechanics"
   },
   {
-    name: "QBism",
-    scores: [-1, -1, 0, -1, 1, 1, 1, -1, -1]
+    name: "QBism, or Quantum bayesianism",
+    scores: [-1, -1, 0, -1, 1, 1, 1, -1, -1],
+    description: "According to QBism, many, but not all, aspects of the quantum formalism are subjective in nature. For example, in this interpretation, a quantum state is not an element of reality—instead it represents the degrees of belief an agent has about the possible outcomes of measurements. Quantum measurement outcomes, then, are personal experiences for the agent gambling on them. This, of course, gives the observer a central role in the theory, sees the wavefunction's collapse as a real phenomenon that represents a change in the agent's beliefs. In addition to this, QBism claims to eliminate nonlocality.",
+    link: "https://en.wikipedia.org/wiki/Quantum_Bayesianism"
   },
   ];
 
@@ -288,15 +333,36 @@
     ];
 
     var interpretationScores = interpretations.map( it => {
-      return { name: it.name, score: scores.reduce((acc, curr, idx) => (acc + curr * it.scores[idx])) }
+      return { name: it.name, link: it.link, description: it.description, score: scores.reduce((acc, curr, idx) => (acc + curr * it.scores[idx])) }
     });
 
     interpretationScores.sort((a, b) => (b.score - a.score));
 
-    console.log(interpretationScores);
-    $('#results').text(interpretationScores[0].name);
+
+    $("#scores-body").empty();
+
+    interpretationScores.forEach(function(elem) {
+      var row = $("<tr scope=\"row\"></tr>");
+      var name = $("<td></td>")
+                  .append($("<a></a").text(elem.name)
+                    .attr("href", "#results-title")
+                    .on('click', function() { selectResult(elem); }));
+      var score = $("<td></td>").text(elem.score);
+      $("#scores-body").append(row.append(name).append(score));
+    });
+
+    
+    selectResult(interpretationScores[0]);
     $('#results-modal').modal();
   })
+
+  function selectResult(result) {
+
+    $('#results-title').text(result.name);
+    $('#results-link').attr("href", result.link);
+    $('#results-description').text(result.description);
+    
+  }
 </script> 
 </body>
 </html>
